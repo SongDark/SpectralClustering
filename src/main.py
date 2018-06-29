@@ -25,6 +25,8 @@ x = sorted(x, key=lambda x:x[0])
 
 H = np.vstack([V[:,i] for (v, i) in x[:500]]).T
 
-kmeans = KMeans(n_clusters=2).fit(H)
+sp_kmeans = KMeans(n_clusters=2).fit(H)
 
-plot(data, kmeans.labels_)
+pure_kmeans = KMeans(n_clusters=2).fit(data)
+
+plot(data, sp_kmeans.labels_, pure_kmeans.labels_)
